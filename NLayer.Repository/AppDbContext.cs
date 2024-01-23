@@ -37,6 +37,17 @@ namespace NLayer.Repository
 
             //modelBuilder.Entity<Category>().HasKey(c => c.Id); //bunlar fluent api. Burdan methoda devam edebiliriz. Id'yi primary olarak ayarladık ama gerek yok aslında.
             //Her entity ile alakalı configürasyonu başka sayfada yapmak mantıklı -CategoryConfiguration
+
+            //burdan da seed data ekleyebilirz.ama best practise değil.
+            modelBuilder.Entity<ProductFeature>().HasData(new ProductFeature
+            {
+                Id=1,
+                Color="kırmızı",
+                Height=100,
+                Width=50,
+                ProductId=1
+            });
+
             base.OnModelCreating(modelBuilder);
         }
 
