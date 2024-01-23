@@ -9,8 +9,9 @@ namespace NLayer.Core
 {
     public class Product : BaseEntity
     {
+        //int,decimal vs default değerleri var 0 o yüzden null olabilir diye uyarı yok. ama string category vs referans tipler olduğu için null olabilir.
         public string Name { get; set; }
-        public int Stock { get; set; }
+        public int Stock { get; set; } 
         public decimal Price { get; set; }
         public int CategoryId { get; set; } 
         
