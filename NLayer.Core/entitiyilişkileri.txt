@@ -1,0 +1,4 @@
+﻿Category ve product arasında bire çok ilişkisi var. 
+Product ve productFeature arasında birebir ilişki var. (product tablosu büyümesin diye detayları burda tutmak için feature ekledik.Tüm tablodaki verileri çekmek istersek de lazy loading yapabiliriz.)
+Yani bir category birden fazla ürüne sahip olabilir.
+Her Product'ın da bir adet kategorisi vardır.
