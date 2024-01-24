@@ -11,7 +11,7 @@ namespace NLayer.Core.Repositories
     {
 
         //Ienumareble dönmememin debebi üzerinde sonrasında işlem yapıp tolist yapmak.
-        IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
+        IQueryable<T> GetAll();
         Task<T> GetByIdAsync(int id);
 
         //Iqueryable döndüğümüzde yazmış olduğum sorgular direkt veri tabanına gitmez. To list ya da Tolistasync gibi methodları çağırısam o zaman db'ye gider.

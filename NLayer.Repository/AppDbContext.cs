@@ -39,16 +39,18 @@ namespace NLayer.Repository
             //Her entity ile alakalı configürasyonu başka sayfada yapmak mantıklı -CategoryConfiguration
 
             //burdan da seed data ekleyebilirz.ama best practise değil.
-            modelBuilder.Entity<ProductFeature>().HasData(new ProductFeature
-            {
-                Id=1,
-                Color="kırmızı",
-                Height=100,
-                Width=50,
-                ProductId=1
-            });
+            modelBuilder.Entity<ProductFeature>().HasData(
+              new ProductFeature
+              {
+                  Id = 1,
+                  Color = "kırmızı",
+                  Height = 100,
+                  Width = 50,
+                  ProductId = 1
+              });
+ 
 
-            base.OnModelCreating(modelBuilder);
+             base.OnModelCreating(modelBuilder);
         }
 
     }

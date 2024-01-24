@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace NLayer.Repository.Seeds
 {
-    internal class ProductSeed : IEntityTypeConfiguration<ProductFeature>
+    internal class ProductSeed : IEntityTypeConfiguration<Product>
     {
-        public void Configure(EntityTypeBuilder<ProductFeature> builder)
+        public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasData(
                new Product { Id = 1, CategoryId = 1, Price = 100, Stock = 20, CreatedDate = DateTime.Now, Name = "kalem 1" },

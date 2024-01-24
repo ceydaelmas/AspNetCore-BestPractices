@@ -35,7 +35,7 @@ namespace NLayer.Repository.Repositories
             return await _dbSet.AnyAsync(expression);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll()
         {
             //asnotracing methodu demek oluyor ki efcore çektiği dataları memorye almasın track etmesin daha performanslı çalışsın.
             return _dbSet.AsNoTracking().AsQueryable();
