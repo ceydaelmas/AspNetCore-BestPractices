@@ -22,6 +22,10 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); //IUnitofwork ile karþýla
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); //Generic tipte olduðu için typeof yapýyoruz. generic türü var. Bu durumda, hangi generic türle çalýþýlacaðý bilinmiyor çünkü bu bir generic tür.
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();//bunlar DI containera eklemiþ olyoruz
+
+
 builder.Services.AddAutoMapper(typeof(MapProfile));//mapping dosyam nerdeyse onu vermem gerek yani Map Profile. MapProfile isminden assemblyi bulcak.
 
 
