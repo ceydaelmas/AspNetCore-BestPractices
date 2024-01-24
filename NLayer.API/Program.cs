@@ -5,6 +5,8 @@ using NLayer.Core.UnitOfWorks;
 using NLayer.Repository;
 using NLayer.Repository.Repositories;
 using NLayer.Repository.UnitOfWork;
+using NLayer.Service.Mapping;
+using NLayer.Service.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,8 +20,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); //IUnitofwork ile karþýlaþýrsa unitofworkü esas alýcak.
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); //Generic tipte olduðu için typeof yapýyoruz. generic türü var. Bu durumda, hangi generic türle çalýþýlacaðý bilinmiyor çünkü bu bir generic tür.
-//builder.Services.AddScoped(typeof(IService<>), typeof(IGenericRepository<>));
+builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 
+builder.Services.AddAutoMapper(typeof(MapProfile));//mapping dosyam nerdeyse onu vermem gerek yani Map Profile. MapProfile isminden assemblyi bulcak.
 
 
 builder.Services.AddDbContext<AppDbContext>(x =>
