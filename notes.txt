@@ -12,3 +12,6 @@ HemAPI hem de MVC tarafýnda hazýr bir API var (useExceptionHandler ismi). Bu mid
 Api ise Kendi response dto nesnemi döneceðim. 
 MVC ise kendi sayfama yönlendireceðim. Error sayfasý.
 Bir middleware'e request ilk geldiðinde gider bir de response oluþurken gider.
+
+-----
+uygulamada az try cahce kullanmak gerekiyor. Performans tarafonda bir bloklayýcý etkisi var.  -best practise
