@@ -8,3 +8,7 @@ Filter API'a özgün bir þey o yüzden service katmanýna yazmam uygun olmaz.
 ----------------------------------
 
 Uygulamada bir hata fýrlatýldýðýnda geriye kötü bir hata dönüor kendi global exception handler dönemmiz gerek.
+HemAPI hem de MVC tarafýnda hazýr bir API var (useExceptionHandler ismi). Bu middleware uygulamada bir hata çýktýðýnda bunu yakalar. Ben bu middlewarei customize edeceðim. 
+Api ise Kendi response dto nesnemi döneceðim. 
+MVC ise kendi sayfama yönlendireceðim. Error sayfasý.
+Bir middleware'e request ilk geldiðinde gider bir de response oluþurken gider.

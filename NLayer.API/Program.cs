@@ -2,6 +2,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NLayer.API.Filters;
+using NLayer.API.Middlewares;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
@@ -60,9 +61,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//bunlar middleware. Bu middlewarelerden geçe geçe controllerdaki action methoda gelir. Actiondan sonuç üretildikten sonra middlewarelere tekrar uðrayarak response oluþur.
+app.UseHttpsRedirection();//http ile baþlayan bir url varsa bunu https'e yönlendirir.
 
-app.UseAuthorization();
+app.UserCustomException();
+
+app.UseAuthorization();//token doðrulamasý burda gerçekleþtirir bir istek geldiðinde
 
 app.MapControllers();
 
