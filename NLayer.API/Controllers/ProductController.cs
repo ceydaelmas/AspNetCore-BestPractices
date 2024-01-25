@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NLayer.API.Filters;
 using NLayer.Core.DTOs;
 using NLayer.Core.Models;
 using NLayer.Core.Services;
 
 namespace NLayer.API.Controllers
 {
+    //[ValidateFilterAttribute] bunu buraya eklemek mantıksız. Çünkü bir sürü controllerım varsa tek tek eklemek kötü olur. Globalleştireceğim. Global diyorsak da program.cs
     public class ProductController : CustomBaseController
     {
         private readonly IMapper _mapper;

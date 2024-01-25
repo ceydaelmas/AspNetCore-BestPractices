@@ -1,0 +1,10 @@
+filter controller içindeki methodlarýmýza gelen requeste müdahale etmemizi saðlar. Önce sonra vs vs.
+Buradaki filterda Validationumda bir hata varsa kendi response modelimi dönmemi saðlasýn istiyorum(ApiREsponse). Yoksa fluentValidation otomatik bir response dönüyor.
+Controllera gelmeden önce geldikten sonra, return dönmeden önce, return döndükten sonra vs müdahale etmemizi saðlýyor.
+Bunlarýn bir üst modeli middlewaredir. Araya intercepter yazabiliyoruz bunda.
+
+Filter API'a özgün bir þey o yüzden service katmanýna yazmam uygun olmaz.
+
+----------------------------------
+
+Uygulamada bir hata fýrlatýldýðýnda geriye kötü bir hata dönüor kendi global exception handler dönemmiz gerek.
