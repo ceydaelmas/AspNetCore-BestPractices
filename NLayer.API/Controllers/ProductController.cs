@@ -9,21 +9,19 @@ namespace NLayer.API.Controllers
     public class ProductController : CustomBaseController
     {
         private readonly IMapper _mapper;
-        private readonly IService<Product> _service;
-        private readonly IProductService _productService;//repo katmanını bilmeyecek service katmanından alacak
+        private readonly IProductService _service;//repo katmanını bilmeyecek service katmanından alacak
 
         public ProductController(IMapper mapper, IService<Product> service, IProductService productService)
         {
             _mapper = mapper;
-            _service = service;
-            _productService = productService;
+            _service = productService;
         }
 
         //direkt method ismi yazmak yerine  [HttpGet("[action]")] da yazabilirz
         [HttpGet("GetProductsWithCategory")] //GET api/products/GetProductsWithCategory. Buraya ismi ekledik çünkü türe göre anlıyordu yoksa karışırdı. 2 tane Get olduğu zaman hata fırlatır. 
         public async Task<IActionResult> GetProductsWithCategory()
         {
-            return CreateActionResult(await _productService.GetProductsWithCategory());
+            return CreateActionResult(await _service.GetProductsWithCategory());
         }
 
         //api/products
