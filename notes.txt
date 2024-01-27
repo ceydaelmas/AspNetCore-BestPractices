@@ -23,3 +23,8 @@ Normalde ASP.Net Core projesi oluþtruduðumzuda bu framework içinde BUÝLT-In DI C
 ve bu interface'e karþýlýk gelen classlarý ekliyoruz. Default olarak gelen bu container ile ctor injection ve method injection yapabiliyoruz. Yani ya herhangi bir classsýn ctoryunda ya da methodunda interfacei geçebilypruz.
 
 Autofac ise daha geliþmiþ container. Bunun property injectionu da var. Ayný zamamnda burada mesela sonu service ile bitenleri eþleme gibi dinamik yapý da kurabiliriz.Program.cs de daha okunaklý olacak.
+
+--------
+Caching iþlemi ekleyeceðim bunu da in memory caching olarak yapacaðým. Bu uygulama nerede host ediliyorsa o hostun memorysini kullanýyorum. 
+Cahcing service için artýk productservicewithcaching var. Artýk benim bunu demem lazým DI containera, sen herhangi bir classýn constructorunda I Procu t service görürsen productservicewithcaching classýndan bir 
+nesne örneði al demem lazým.
