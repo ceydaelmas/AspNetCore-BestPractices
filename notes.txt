@@ -15,3 +15,11 @@ Bir middleware'e request ilk geldiðinde gider bir de response oluþurken gider.
 
 -----
 uygulamada az try cahce kullanmak gerekiyor. Performans tarafonda bir bloklayýcý etkisi var.  -best practise
+
+----------
+
+AutoFac bir inversion of control container olarak geçiyor. Ayný zamanda Dependency Injection Container olarak da geçer.
+Normalde ASP.Net Core projesi oluþtruduðumzuda bu framework içinde BUÝLT-In DI Container gelir. Yani program Servicete eklediðimiz AddScopedlar. Herhangi bir classýn ctorunda kullandýðýn interfacei 
+ve bu interface'e karþýlýk gelen classlarý ekliyoruz. Default olarak gelen bu container ile ctor injection ve method injection yapabiliyoruz. Yani ya herhangi bir classsýn ctoryunda ya da methodunda interfacei geçebilypruz.
+
+Autofac ise daha geliþmiþ container. Bunun property injectionu da var. Ayný zamamnda burada mesela sonu service ile bitenleri eþleme gibi dinamik yapý da kurabiliriz.Program.cs de daha okunaklý olacak.
