@@ -36,6 +36,7 @@ namespace NLayer.API.Controllers
         }
 
         //api/product/5
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -60,6 +61,7 @@ namespace NLayer.API.Controllers
         }
 
         //delete api/product/5
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Remove(int id)
         {

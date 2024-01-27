@@ -28,6 +28,7 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped(typeof(NotFoundFilter<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); //IUnitofwork ile karþýlaþýrsa unitofworkü esas alýcak.
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); //Generic tipte olduðu için typeof yapýyoruz. generic türü var. Bu durumda, hangi generic türle çalýþýlacaðý bilinmiyor çünkü bu bir generic tür.
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
