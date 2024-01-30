@@ -23,7 +23,8 @@ namespace NLayer.API.Filters
             //enspointteki id'yi yakalamam lazım. GetById olarak düşün.
 
             var idValue = context.ActionArguments.Values.FirstOrDefault(); // id'yi alacak
-            if(idValue == null ) {
+            if (idValue == null)
+            {
                 await next.Invoke(); //id'si yoksa yoluna devam et. Daha aşağı inmene gerek yok.
                 return;
             }

@@ -4,11 +4,6 @@ using NLayer.Core.Models;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayer.Service.Services
 {
@@ -27,7 +22,7 @@ namespace NLayer.Service.Services
             var products = await _productRepository.GetProductsWithCategory();
             var productsDTO = _mapper.Map<List<ProductWithCategoryDTO>>(products);
             //business burda döneceği için direkt api responselarını burda dönelim. API katmanıda daha az iş olsun.
-            return ApiResponseDTO<List<ProductWithCategoryDTO>>.Success(200,productsDTO);
+            return ApiResponseDTO<List<ProductWithCategoryDTO>>.Success(200, productsDTO);
         }
     }
 }

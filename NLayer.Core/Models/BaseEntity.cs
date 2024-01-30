@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NLayer.Core.Models
+﻿namespace NLayer.Core.Models
 {
     //abstract nesne oluşturulmaması için yaptım.newlenemez(interface için de aynı
     public abstract class BaseEntity

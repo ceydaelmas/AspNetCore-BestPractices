@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.Extensions.Caching.Memory;
 using NLayer.Core.DTOs;
 using NLayer.Core.Models;
@@ -8,12 +7,7 @@ using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
 using NLayer.Service.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayer.Caching
 {
@@ -36,7 +30,7 @@ namespace NLayer.Caching
             //bu ilk oluşturluduğu anda bi cacheleme oluşturmaya çalışıyor. True ya da false döner aşağıdaki method eğer true ise out içinde tuttuğu datayı döner.
             //out keywordü birr methodda birden fazla değer dönmeyi sağlar. Tuple da dönebilirdik ama out mantıklı gibi. 
             //aşağıda sadece true falae dönmek isitorum bu method için o yüzden _ yazdım. Memoryde boşuna allocate etmesin.
-            if(!_memoryCache.TryGetValue(CacheProductKey, out _))
+            if (!_memoryCache.TryGetValue(CacheProductKey, out _))
             {
                 //const içinde async method kullanamayız. Sonuna result ekleyip asenkron dönen sonucu senkrona dönüştürmem gerek
                 _memoryCache.Set(CacheProductKey, _repository.GetProductsWithCategory().Result);
@@ -73,7 +67,7 @@ namespace NLayer.Caching
         public Task<Product> GetByIdAsync(int id)
         {
             var product = _memoryCache.Get<List<Product>>(CacheProductKey).FirstOrDefault(x => x.Id == id);
-            if(product == null)
+            if (product == null)
             {
                 throw new NotFoundExeption($"{typeof(Product).Name} ({id}) not found");
             }
@@ -119,6 +113,7 @@ namespace NLayer.Caching
         {
             //bu methodu her çağırdığımda sıfırdan datayı çekip cacheliyor.
             await _memoryCache.Set(CacheProductKey, _repository.GetAll().ToListAsync());
-;        }
+            ;
+        }
     }
 }

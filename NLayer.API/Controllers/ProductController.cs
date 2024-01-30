@@ -31,8 +31,8 @@ namespace NLayer.API.Controllers
         public async Task<IActionResult> All()
         {
             var products = await _service.GetAllAsync();
-            var productsDTO= _mapper.Map<List<ProductDTO>>(products.ToList()); //mapping gibi işlemlerin her zaman service katmanına yani business logic tarafında yapılmasıdır. bu düzeltilecek
-            return CreateActionResult(ApiResponseDTO<List<ProductDTO>>.Success(200,productsDTO));
+            var productsDTO = _mapper.Map<List<ProductDTO>>(products.ToList()); //mapping gibi işlemlerin her zaman service katmanına yani business logic tarafında yapılmasıdır. bu düzeltilecek
+            return CreateActionResult(ApiResponseDTO<List<ProductDTO>>.Success(200, productsDTO));
         }
 
         //api/product/5

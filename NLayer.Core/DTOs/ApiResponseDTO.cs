@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace NLayer.Core.DTOs
 {
@@ -16,24 +11,24 @@ namespace NLayer.Core.DTOs
         public int StatusCode { get; set; }
         public List<String> Errors { get; set; }
 
-        public static ApiResponseDTO<T>Success(int  statusCode, T data)
+        public static ApiResponseDTO<T> Success(int statusCode, T data)
         {
-            return new ApiResponseDTO<T> { Data = data, StatusCode = statusCode};
+            return new ApiResponseDTO<T> { Data = data, StatusCode = statusCode };
         }
 
         public static ApiResponseDTO<T> Success(int statusCode)
         {
-            return new ApiResponseDTO<T> {StatusCode = statusCode};
+            return new ApiResponseDTO<T> { StatusCode = statusCode };
         }
 
-        public static ApiResponseDTO<T> Fail( int statusCode,List<string> errors)
+        public static ApiResponseDTO<T> Fail(int statusCode, List<string> errors)
         {
-            return new ApiResponseDTO<T> { StatusCode = statusCode, Errors=errors };
+            return new ApiResponseDTO<T> { StatusCode = statusCode, Errors = errors };
         }
 
         public static ApiResponseDTO<T> Fail(int statusCode, string error)
         {
-            return new ApiResponseDTO<T> { StatusCode = statusCode, Errors = new List<string> { error }};
+            return new ApiResponseDTO<T> { StatusCode = statusCode, Errors = new List<string> { error } };
         }
 
     }

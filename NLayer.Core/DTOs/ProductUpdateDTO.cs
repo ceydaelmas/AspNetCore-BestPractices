@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NLayer.Core.DTOs
+﻿namespace NLayer.Core.DTOs
 {
     //bu best practice değil her bir işlem için dto oluşturmak.
     public class ProductUpdateDTO

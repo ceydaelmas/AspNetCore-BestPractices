@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
 namespace NLayer.Core.Repositories
 {
@@ -20,7 +15,7 @@ namespace NLayer.Core.Repositories
 
         //sorgu-> expression olcak ve function Delegate alcak. T şekilde nesne alcak ve boolean döncek. Delegate methodları işaret eden yapılardır(action da bir Delegate)
         //Delege, metodların adreslerini yani metodları fiziksel olarak işaretleyebilen yapılar olduğunu hatırlayalım. Func<int, int> Toplam = ToplamMetodu;
-        IQueryable<T> Where(Expression<Func<T,bool>> expression);
+        IQueryable<T> Where(Expression<Func<T, bool>> expression);
 
         Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
 

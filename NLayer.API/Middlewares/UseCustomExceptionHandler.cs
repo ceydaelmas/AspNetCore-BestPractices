@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using NLayer.Core.DTOs;
 using NLayer.Service.Exceptions;
-using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 namespace NLayer.API.Middlewares
