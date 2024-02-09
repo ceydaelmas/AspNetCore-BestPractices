@@ -61,7 +61,8 @@ namespace NLayer.Caching
 
         public Task<IEnumerable<Product>> GetAllAsync()
         {
-            return Task.FromResult(_memoryCache.Get<IEnumerable<Product>>(CacheProductKey));
+            var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey);
+            return Task.FromResult(products);
         }
 
         public Task<Product> GetByIdAsync(int id)
@@ -112,8 +113,7 @@ namespace NLayer.Caching
         public async Task CacheAllProductsAsync()
         {
             //bu methodu her çağırdığımda sıfırdan datayı çekip cacheliyor.
-            await _memoryCache.Set(CacheProductKey, _repository.GetAll().ToListAsync());
-            ;
+            _memoryCache.Set(CacheProductKey, await _repository.GetAll().ToListAsync());
         }
     }
 }
