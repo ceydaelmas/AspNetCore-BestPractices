@@ -47,5 +47,60 @@ namespace NLayer.Repository
             base.OnModelCreating(modelBuilder);
         }
 
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+
+            //veri tabanına yansıtmadan hemen önceki işlemleri burda yapabilirim. Update veya created date işlemi 
+            //ilk track edilen entitiyleri tek tek dönelim 
+            foreach(var item in ChangeTracker.Entries())
+            {
+                //eğer bu item bir base entity ise onu alıp tipini anladık.
+                if(item.Entity is BaseEntity entityReferennce)
+                {
+                    //şimdi ise güncelleme veya update var mı onu ölçeceğiz
+                    switch (item.State) {
+                        case EntityState.Added:
+                            {
+                                entityReferennce.CreatedDate = DateTime.Now;
+                                break;
+                            }
+                        case EntityState.Modified:
+                            {
+                                Entry(entityReferennce).Property(x => x.CreatedDate).IsModified = false;//güncelleme yaparken bu alana dokunma bu şekilde kalsın.
+                                entityReferennce.UpdatedDate = DateTime.Now;
+                                break;
+                            }
+                    }
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        public override int SaveChanges()
+        {
+            foreach (var item in ChangeTracker.Entries())
+            {
+                //eğer bu item bir base entity ise onu alıp tipini anladık.
+                if (item.Entity is BaseEntity entityReferennce)
+                {
+                    //şimdi ise güncelleme veya update var mı onu ölçeceğiz
+                    switch (item.State)
+                    {
+                        case EntityState.Added:
+                            {
+                                entityReferennce.CreatedDate = DateTime.Now;
+                                break;
+                            }
+                        case EntityState.Modified:
+                            {
+                                entityReferennce.UpdatedDate = DateTime.Now;
+                                break;
+                            }
+                    }
+                }
+            }
+            return base.SaveChanges();
+        }
+
     }
 }
