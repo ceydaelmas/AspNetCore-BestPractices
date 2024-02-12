@@ -12,5 +12,6 @@ namespace NLayer.Core.Services
     {
         //özelleştirlmiş bir dto oluşturmam gerek. repolar entity dönerken serviceler dto döner
         Task<ApiResponseDTO<List<ProductWithCategoryDTO>>> GetProductsWithCategory();
+
     }
 }

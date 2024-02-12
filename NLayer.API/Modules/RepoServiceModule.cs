@@ -20,7 +20,8 @@ namespace NLayer.API.Modules
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>)).InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(Service<>)).As(typeof(IService<>)).InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(ServiceWithDto<,>)).As(typeof(IServiceWithDto<,>)).InstancePerLifetimeScope();
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            builder.RegisterType<ProductServiceWithDto>().As<IProductServiceWithDto>().InstancePerLifetimeScope();
             //ilk bir assemblyleri alalım.
             var apiAssembly = Assembly.GetExecutingAssembly(); //üzerinde olduğumuz asseblyi al api.
             var repoAssembly = Assembly.GetAssembly(typeof(AppDbContext)); //repo katmanındaki herhangi bir classı versem de olur.
