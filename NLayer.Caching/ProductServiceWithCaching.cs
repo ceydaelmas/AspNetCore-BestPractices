@@ -113,7 +113,7 @@ namespace NLayer.Caching
         public async Task CacheAllProductsAsync()
         {
             //bu methodu her çağırdığımda sıfırdan datayı çekip cacheliyor.
-            _memoryCache.Set(CacheProductKey, await _repository.GetAll().ToListAsync());
+            _memoryCache.Set(CacheProductKey, await _repository.GetProductsWithCategory());
         }
     }
 }
