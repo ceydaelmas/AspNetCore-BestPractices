@@ -28,3 +28,6 @@ Autofac ise daha geliþmiþ container. Bunun property injectionu da var. Ayný zama
 Caching iþlemi ekleyeceðim bunu da in memory caching olarak yapacaðým. Bu uygulama nerede host ediliyorsa o hostun memorysini kullanýyorum. 
 Cahcing service için artýk productservicewithcaching var. Artýk benim bunu demem lazým DI containera, sen herhangi bir classýn constructorunda I Procu t service görürsen productservicewithcaching classýndan bir 
 nesne örneði al demem lazým.
+
+---
+api-mvc branchinde web kýsmý api üzerinden  haberleþecek. 

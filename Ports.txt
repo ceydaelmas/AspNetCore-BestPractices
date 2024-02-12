@@ -1,0 +1,7 @@
+API PORTS =>
+https://localhost:7076/ 
+http://localhost:5116
+
+MVC Ports =>
+https://localhost:7025
+http://localhost:5214

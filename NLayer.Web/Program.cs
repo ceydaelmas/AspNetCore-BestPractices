@@ -7,6 +7,7 @@ using NLayer.Service.Mapping;
 using NLayer.Service.Validations;
 using NLayer.Web.Filters;
 using NLayer.Web.Modules;
+using NLayer.Web.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,17 @@ builder.Services.AddDbContext<AppDbContext>(x =>
     });
     //App dbcontextimin olduðu assemblyi tanýtmam lazým.repository katmanýnda
 });
+builder.Services.AddHttpClient<ProductApiService>(opt =>
+{
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+});
+//BEST PRACTISE
+//http clienti kendin üretme bu kötü yöntem DI container'a býrak bu iþi new ile üretme. DI container bize nesne örneði veryor. Daha performanslý ve daha az nesne örneði üreterek Http clienti kullanabilir zböylece soket yokuðu hatalarýndan yýrtarýz :)
+builder.Services.AddHttpClient<CategoryApiService>(opt =>
+{
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+});
+
 builder.Services.AddScoped(typeof(NotFoundFilter<>));//eðer böyle bir T þeklinde tip alýyorsa yani genericse bunu programcsde belirtmemiz gerekiyor.
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));

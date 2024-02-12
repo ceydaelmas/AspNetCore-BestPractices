@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{67B53361-F48F-469B-9EAC-6E0FEF786C60}"
 	ProjectSection(SolutionItems) = preProject
 		notes.txt = notes.txt
+		Ports.txt = Ports.txt
 	EndProjectSection
 EndProject
 Global
